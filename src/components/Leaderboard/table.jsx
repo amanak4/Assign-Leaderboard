@@ -289,7 +289,7 @@ const Leaderboard = () => {
                 )}
             </div>
             <div className="my-6 w-[69vw] mx-auto text-sm text-center text-gray-600 font-serif italic">
-        If you couldn't make it to the top 10, don't be demotivated. Just remember what <strong> Sir Thomas Edison </strong> said - "<span className="text-blue-500 font-serif font-bold">I have not failed. I've just found 10,000 ways that won't work.</span>"
+            If you couldn't make it to the leaderboard, don't be demotivated. Just remember what <strong> Sir Thomas Edison </strong> said - "<span className="text-blue-500 font-serif font-bold">I have not failed. I've just found 10,000 ways that won't work.</span>"
     </div>
         </div>
         </div>
