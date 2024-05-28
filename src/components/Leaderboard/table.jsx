@@ -92,6 +92,50 @@ const Leaderboard = () => {
         );
     }, []);
 
+
+    const lastQuotesRef = useRef(null);
+
+    useEffect(() => {
+        const lastQuotes = lastQuotesRef.current;
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const quote = entry.target.querySelectorAll('span');
+                    gsap.fromTo(
+                        quote,
+                        { autoAlpha: 0, y: 20 },
+                        {
+                            autoAlpha: 1,
+                            y: 0,
+                        duration: 0.9,
+                            delay: 0.5, 
+                            stagger: {
+                                each: 0.1,
+                                from: 'start',
+                                ease: 'power1.out',
+                                onComplete: () => {
+                                    // Optionally, you can add a callback to execute after the animation is complete
+                                }
+                            },
+                        }
+                    );
+                }
+            });
+        }, { threshold: 0.5 }); // Trigger the animation when 50% of the last quotes section is visible
+
+        if (lastQuotes) {
+            observer.observe(lastQuotes);
+        }
+
+        return () => {
+            if (lastQuotes) {
+                observer.unobserve(lastQuotes);
+            }
+        };
+    }, []);
+
+
     return (
         <div className="container mx-auto mt-10">
             <h1 className="text-4xl font-bold mb-6 text-center text-gray-700">
@@ -288,8 +332,8 @@ const Leaderboard = () => {
                     </div>
                 )}
             </div>
-            <div className="my-6 w-[69vw] mx-auto text-sm text-center text-gray-600 font-serif italic">
-            If you couldn't make it to the leaderboard, don't be demotivated. Just remember what <strong> Sir Thomas Edison </strong> said - "<span className="text-blue-500 font-serif font-bold">I have not failed. I've just found 10,000 ways that won't work.</span>"
+            <div ref={lastQuotesRef} className="my-6 w-[69vw] mx-auto text-sm text-center text-gray-600 font-serif italic">
+            <span>If you couldn't make it to the leaderboard, don't be demotivated. Just remember what <strong> Sir Thomas Edison </strong> said- "</span><span className="text-blue-500 font-serif font-bold">I have not failed. I've just found 10,000 ways that won't work.</span>"
     </div>
         </div>
         </div>
