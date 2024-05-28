@@ -268,7 +268,18 @@ const Leaderboard = () => {
     </div>
     {row.rank === 1 && (
         <div className="flex items-center justify-center">
-            <span role="img" aria-label="trophy" className="text-[9rem]">🏆</span>
+            <span role="img" aria-label="trophy" className="text-[9rem]">🥇</span>
+        </div>
+    )}
+    {row.rank === 2 && (
+        <div className="flex items-center justify-center">
+            <span role="img" aria-label="trophy" className="text-[9rem]">🥈</span>
+        </div>
+    )}
+    
+    {row.rank === 3 && (
+        <div className="flex items-center justify-center">
+            <span role="img" aria-label="trophy" className="text-[9rem]">🥉</span>
         </div>
     )}
 </div>
