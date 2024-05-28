@@ -157,7 +157,7 @@ const Leaderboard = () => {
                 <div className='border border-gray-300 rounded p-4'>
                 <div className="flex flex-wrap items-center justify-between mb-4">
                 
-                    <div className="flex items-center font-serif space-x-4">
+                    <div className="flex flex-wrap gap-2 items-center font-serif space-x-4">
                         <input
                             type="text"
                             placeholder="🔍 Search by name"
@@ -212,7 +212,7 @@ const Leaderboard = () => {
                 </div>
                 {viewMode === 'table' && !isMobile ? (
                     <div>
-                        <table className="min-w-full font-serif bg-white border border-gray-200">
+                        <table className="mx-4 font-serif bg-white border border-gray-200">
                             <thead>
                                 <tr>
                                     <th className="border-b cursor-pointer hover:bg-gray-100 text-left items-right justify-between" onClick={() => handleSort('rank')}>
